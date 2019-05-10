@@ -123,7 +123,7 @@
       {# End furniture #}
 
     </div>
-    <a class="fas fa-long-arrow-alt-down fade-in" href="http://iainru.com/links"></a>
+    <a class="fas fa-long-arrow-alt-down fade-in" href="http://www.iainru.com/links"></a>
 </section>
 
 {% endblock content %} {% block js_script %}
@@ -132,15 +132,15 @@
     document.addEventListener("keydown", event => {
       const key = event.keyCode;
       if (key === 37 || key === 38) {
-        window.location = "http://iainru.com/";
+        window.location = "http://www.iainru.com/";
       } else if (key === 39 || key === 40) {
-        window.location = "http://iainru.com/links";
+        window.location = "http://www.iainru.com/links";
       }
     });
   }, 1500);
-  if (document.referrer === "http://iainru.com/") {
+  if (document.referrer === "http://www.iainru.com/") {
     document.querySelector("#projects").classList.add("fromIndex");
-  } else if (document.referrer === "http://iainru.com/links/") {
+  } else if (document.referrer === "http://www.iainru.com/links/") {
     document.querySelector("#projects").classList.add("fromLinks");
   } else {
     document.querySelector("#projects").classList.add("fromIndex");
@@ -210,10 +210,10 @@
   //     TOTAL += newIndex ;
   //     if (TOTAL > 15) {
   //       TOTAL = 0;
-  //       window.location = "http://iainru.com/"
+  //       window.location = "http://www.iainru.com/"
   //     } else if (TOTAL < -15) {
   //       TOTAL = 0;
-  //       window.location = "http://iainru.com/links/"
+  //       window.location = "http://www.iainru.com/links/"
   //     }
   //   }
   // }, 2000);
