@@ -17,7 +17,7 @@
     </div>
 
   </div>
-  <a class="fas fa-long-arrow-alt-down fade-in" href="http://127.0.0.1:8000/projects"></a>
+  <a class="fas fa-long-arrow-alt-down fade-in" href="http://iainr.dev/projects"></a>
 </section>
 
 {% endblock content %} {% block js_script %}
@@ -26,15 +26,15 @@
     document.addEventListener("keydown", event => {
       const key = event.keyCode;
       if (key === 37 || key === 38) {
-        window.location = "http://127.0.0.1:8000/links";
+        window.location = "http://iainr.dev/links";
       } else if (key === 39 || key === 40) {
-        window.location = "http://127.0.0.1:8000/projects";
+        window.location = "http://iainr.dev/projects";
       }
     });
   }, 1500);
-  if (document.referrer === "http://127.0.0.1:8000/links/") {
+  if (document.referrer === "http://iainr.dev/links/") {
     document.querySelector("#index").classList.add("fromLinks");
-  } else if (document.referrer === "http://127.0.0.1:8000/projects/") {
+  } else if (document.referrer === "http://iainr.dev/projects/") {
     document.querySelector("#index").classList.add("fromProjects");
   } else {
     document.querySelector("#index").classList.add("fromLinks");
@@ -57,10 +57,10 @@
   //     TOTAL += newIndex ;
   //     if (TOTAL > 15) {
   //       TOTAL = 0;
-  //       window.location = "http://127.0.0.1:8000/links/"
+  //       window.location = "http://iainr.dev/links/"
   //     } else if (TOTAL < -15) {
   //       TOTAL = 0;
-  //       window.location = "http://127.0.0.1:8000/projects/"
+  //       window.location = "http://iainr.dev/projects/"
   //     }
   //   }
   // }, 2000);

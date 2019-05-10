@@ -120,7 +120,7 @@
       {# End furniture #}
 
     </div>
-    <a class="fas fa-long-arrow-alt-down fade-in" href="http://127.0.0.1:8000/links"></a>
+    <a class="fas fa-long-arrow-alt-down fade-in" href="http://iainr.dev/links"></a>
   </div>
 </section>
 
@@ -132,13 +132,13 @@
       if (key === 37 || key === 38) {
         window.location = "http://127.0.0.1:8000";
       } else if (key === 39 || key === 40) {
-        window.location = "http://127.0.0.1:8000/links";
+        window.location = "http://iainr.dev/links";
       }
     });
   }, 1500);
-  if (document.referrer === "http://127.0.0.1:8000/") {
+  if (document.referrer === "http://iainr.dev/") {
     document.querySelector("#projects").classList.add("fromIndex");
-  } else if (document.referrer === "http://127.0.0.1:8000/links/") {
+  } else if (document.referrer === "http://iainr.dev/links/") {
     document.querySelector("#projects").classList.add("fromLinks");
   } else {
     document.querySelector("#projects").classList.add("fromIndex");
@@ -208,10 +208,10 @@
   //     TOTAL += newIndex ;
   //     if (TOTAL > 15) {
   //       TOTAL = 0;
-  //       window.location = "http://127.0.0.1:8000/"
+  //       window.location = "http://iainr.dev/"
   //     } else if (TOTAL < -15) {
   //       TOTAL = 0;
-  //       window.location = "http://127.0.0.1:8000/links/"
+  //       window.location = "http://iainr.dev/links/"
   //     }
   //   }
   // }, 2000);
