@@ -20,15 +20,15 @@
           <i class="fab fa-linkedin-in"></i>
           LinkedIn</a>
       </h3>
-      <h3 class="links-mini fade-in"><a href="mailto:info@iainr.dev"><i class="fas fa-envelope"></i>
-          info@iainr.dev</a>
+      <h3 class="links-mini fade-in"><a href="mailto:info@iainru.com"><i class="fas fa-envelope"></i>
+          info@iainru.com</a>
         </h3>
       <h3 class="links-mini fade-in"><a href=""><i class="fas fa-file-alt"></i>
           cv.pdf</a>
         </h3>
     </div>
   </div>
-  <a class="fas fa-long-arrow-alt-down links-arrow fade-in" href="http://iainr.dev/"></a>
+  <a class="fas fa-long-arrow-alt-down links-arrow fade-in" href="http://iainru.com/"></a>
 </section>
 
 {% endblock content %} {% block js_script %}
@@ -37,15 +37,15 @@
     document.addEventListener("keydown", event => {
       const key = event.keyCode;
       if (key === 37 || key === 38) {
-        window.location = "http://iainr.dev/projects";
+        window.location = "http://iainru.com/projects";
       } else if (key === 39 || key === 40) {
         window.location = "http://127.0.0.1:8000";
       }
     });
   }, 1500);
-  if (document.referrer === "http://iainr.dev/projects") {
+  if (document.referrer === "http://iainru.com/projects") {
     document.querySelector("#links").classList.add("fromProjects");
-  } else if (document.referrer === "http://iainr.dev/") {
+  } else if (document.referrer === "http://iainru.com/") {
     document.querySelector("#links").classList.add("fromIndex");
   } else {
     document.querySelector("#links").classList.add("fromProjects");
@@ -70,10 +70,10 @@
   //     TOTAL += newIndex;
   //     if (TOTAL > 15) {
   //       TOTAL = 0;
-  //       window.location = "http://iainr.dev/projects/"
+  //       window.location = "http://iainru.com/projects/"
   //     } else if (TOTAL < -15) {
   //       TOTAL = 0;
-  //       window.location = "http://iainr.dev/"
+  //       window.location = "http://iainru.com/"
   //     }
   //   }
   // }, 2000);
