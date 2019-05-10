@@ -1,0 +1,221 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+<section class="hero is-fullheight" id="projects">
+  <div class="hero-body">
+    <div class="container hero-body-container fade-in">
+      <h1 class="projects-header slide-in-r">SELECTED WORKS</h1>
+
+
+      <h3 class="main-text each-move slide-in-r">
+        <a class="underline" href="http://www.coinsushi.com">CoinSushi</a>
+      </h3>
+
+      <h3 class="main-text each-move slide-in-r" onclick="guitarModal()">
+        <a class="underline">Guitars</a>
+      </h3>
+
+      <h3 class="main-text each-move slide-in-r" onclick="eurorackModal()">
+        <a class="underline">Eurorack</a>
+      </h3>
+
+      <h3 class="main-text each-move slide-in-r" onclick="furnitureModal()">
+        <a class="underline">Furniture</a>
+      </h3>
+
+      {# Guitars #}
+
+      <div class="modal modal-fx-normal" id="guitar-modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+
+          <div class="carousel">
+            <div class="carousel-cell">
+              <figure class="image is-square">
+                <img data-flickity-lazyload="{% static 'images/41.jpg' %}" />
+              </figure>
+            </div>
+
+            <div class="carousel-cell">
+              <figure class="image is-square">
+                <img data-flickity-lazyload="{% static 'images/43.jpg' %}" />
+              </figure>
+            </div>
+            <div class="carousel-cell">
+              <figure class="image is-square">
+                <img data-flickity-lazyload="{% static 'images/42.jpg' %}" />
+              </figure>
+            </div>
+            <div class="carousel-cell">
+              <figure class="image is-square">
+                <img data-flickity-lazyload="{% static 'images/44.jpg' %}" />
+              </figure>
+            </div>
+            <div class="carousel-cell ">
+              <figure class="image is-square">
+                <img data-flickity-lazyload="{% static 'images/33.jpg' %}" />
+              </figure>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      {# End guitars #}
+
+      {# Eurorack #}
+
+      <div class="modal modal-fx-normal" id="eurorack-modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+
+          <div class="carousel">
+            <div class="carousel-cell ">
+              <figure class="image is-square">
+                <img data-flickity-lazyload="{% static 'images/12u1.jpg' %}" />
+              </figure>
+            </div>
+            <div class="carousel-cell">
+              <figure class="image  is-square">
+                <img data-flickity-lazyload="{% static 'images/6u1.jpg' %}" />
+              </figure>
+            </div>
+            <div class="carousel-cell">
+              <figure class="image  is-square">
+                <img data-flickity-lazyload="{% static 'images/6u2.jpg' %}" />
+              </figure>
+            </div>
+            <div class="carousel-cell">
+              <figure class="image  is-square">
+                <img data-flickity-lazyload="{% static 'images/12u2.jpg' %}" />
+              </figure>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      {# End eurorack #}
+
+      {# Furniture #}
+
+      <div class="modal modal-fx-normal" id="furniture-modal">
+        <div class="modal-background"></div>
+        <div class="modal-content">
+
+          <div class="carousel">
+            <div class="carousel-cell ">
+              <figure class="image is-square">
+                <img data-flickity-lazyload="{% static 'images/Walnut1.jpg' %}" />
+              </figure>
+            </div>
+            <div class="carousel-cell">
+              <figure class="image  is-square">
+                <img data-flickity-lazyload="{% static 'images/Walnut2.jpg' %}" />
+              </figure>
+            </div>
+
+        </div>
+      </div>
+
+      {# End furniture #}
+
+    </div>
+    <a class="fas fa-long-arrow-alt-down fade-in" href="http://127.0.0.1:8000/links"></a>
+  </div>
+</section>
+
+{% endblock content %} {% block js_script %}
+<script>
+  setTimeout(function() {
+    document.addEventListener("keydown", event => {
+      const key = event.keyCode;
+      if (key === 37 || key === 38) {
+        window.location = "http://127.0.0.1:8000";
+      } else if (key === 39 || key === 40) {
+        window.location = "http://127.0.0.1:8000/links";
+      }
+    });
+  }, 1500);
+  if (document.referrer === "http://127.0.0.1:8000/") {
+    document.querySelector("#projects").classList.add("fromIndex");
+  } else if (document.referrer === "http://127.0.0.1:8000/links/") {
+    document.querySelector("#projects").classList.add("fromLinks");
+  } else {
+    document.querySelector("#projects").classList.add("fromIndex");
+  }
+  window.onload = function() {
+    document.querySelector("#projects").classList.add("projectsActive");
+    setTimeout(function() {
+      document.querySelectorAll(".main-text").forEach(item => {
+        item.classList.remove("slide-in-r");
+      });
+    }, 1200);
+  };
+
+  function guitarModal() {
+    document.querySelector("#guitar-modal").classList.add("is-active");
+  }
+
+  function eurorackModal() {
+    document.querySelector("#eurorack-modal").classList.add("is-active");
+  }
+
+  function furnitureModal() {
+    document.querySelector("#furniture-modal").classList.add("is-active");
+  }
+
+  function closeModal() {
+    document.querySelector(".is-active").classList.remove("is-active");
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target.className === "modal-background") {
+      document.querySelector(".is-active").classList.remove("is-active");
+    }
+  };
+  // Escape to close modal
+  document.addEventListener("keydown", event => {
+    const key = event.keyCode;
+    if (key === 27) {
+      closeModal();
+    }
+  });
+
+
+  var $carousel = $('.carousel').flickity({
+    lazyLoad: 3,
+    // pageDots: false,
+    cellAlign: 'center',
+    // contain: true,
+    resize: true,
+    prevNextButtons: true
+  });
+
+
+
+  // // Scroll to page change
+  //
+  // let TOTAL = 0;
+  // setTimeout(function() {
+  //   window.addEventListener("wheel", onWheel);
+  //   function onWheel(event) {
+  //     var delta = event.wheelDelta;
+  //     if (delta) {
+  //       var normalized = (delta % 120) == 0 ? delta / 120 : delta / 12;
+  //     }
+  //     var newIndex = normalized > 0 ? 0 + 1 : 0 - 1;
+  //     TOTAL += newIndex ;
+  //     if (TOTAL > 15) {
+  //       TOTAL = 0;
+  //       window.location = "http://127.0.0.1:8000/"
+  //     } else if (TOTAL < -15) {
+  //       TOTAL = 0;
+  //       window.location = "http://127.0.0.1:8000/links/"
+  //     }
+  //   }
+  // }, 2000);
+
+
+</script>
+{% endblock js_script %}

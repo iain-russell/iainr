@@ -1,0 +1,40 @@
+# current docker-compose.yml version
+version: "3"
+
+# list services
+services:
+  # name of service
+  app:
+    # where to build
+    build:
+      # list directory
+      context: .
+    restart: always
+    env_file:
+      - django.env
+
+    # local port : docker port
+    ports:
+      - "80:8000"
+    # maps local app directory to docker app directory
+    volumes:
+      - ./app:/app
+
+    # which port the app should interally be exposed to
+    expose:
+      - 8000
+
+    command: >
+      sh -c "python manage.py migrate &&
+             python manage.py collectstatic --no-input &&
+             gunicorn --workers=2 --bind=0.0.0.0:8000 app.wsgi:application"
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./nginx:/etc/nginx/conf.d
+    # port on the left is the output
+    ports:
+      - "8000:80"
+    depends_on:
+      - app

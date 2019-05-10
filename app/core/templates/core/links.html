@@ -1,0 +1,81 @@
+{% extends "base.html" %} {% load static %} {% block content %}
+
+<section class="hero is-fullheight" id="links">
+  <div class="hero-body">
+    <div class="container hero-body-container fade-in">
+      <h1 class="main-text slide-in-r">
+        I am currently located in ...
+      </h1>
+      <h1 class="main-text slide-in-r">
+        Send me a message and say hi!
+      </h1>
+      <br />
+      <h3 class="links-mini fade-in">
+        <a href="https://https://github.com/iain-russell">
+          <i class="fab fa-github"></i>
+          Github</a>
+      </h3>
+      <h3 class="links-mini fade-in" href="https://https://www.linkedin.com/in/iainrussell1989/">
+        <a href="https://https://www.linkedin.com/in/iainrussell1989/">
+          <i class="fab fa-linkedin-in"></i>
+          LinkedIn</a>
+      </h3>
+      <h3 class="links-mini fade-in"><a href="mailto:info@iainr.dev"><i class="fas fa-envelope"></i>
+          info@iainr.dev</a>
+        </h3>
+      <h3 class="links-mini fade-in"><a href=""><i class="fas fa-file-alt"></i>
+          cv.pdf</a>
+        </h3>
+    </div>
+  </div>
+  <a class="fas fa-long-arrow-alt-down links-arrow fade-in" href="http://127.0.0.1:8000/"></a>
+</section>
+
+{% endblock content %} {% block js_script %}
+<script>
+  setTimeout(function() {
+    document.addEventListener("keydown", event => {
+      const key = event.keyCode;
+      if (key === 37 || key === 38) {
+        window.location = "http://127.0.0.1:8000/projects";
+      } else if (key === 39 || key === 40) {
+        window.location = "http://127.0.0.1:8000";
+      }
+    });
+  }, 1500);
+  if (document.referrer === "http://127.0.0.1:8000/projects") {
+    document.querySelector("#links").classList.add("fromProjects");
+  } else if (document.referrer === "http://127.0.0.1:8000/") {
+    document.querySelector("#links").classList.add("fromIndex");
+  } else {
+    document.querySelector("#links").classList.add("fromProjects");
+  }
+  window.onload = function() {
+    document.querySelector("#links").classList.add("linksActive");
+  };
+
+
+  // // Scroll to page change
+  //
+  // let TOTAL = 0;
+  // setTimeout(function() {
+  //   window.addEventListener("wheel", onWheel);
+  //
+  //   function onWheel(event) {
+  //     var delta = event.wheelDelta;
+  //     if (delta) {
+  //       var normalized = (delta % 120) == 0 ? delta / 120 : delta / 12;
+  //     }
+  //     var newIndex = normalized > 0 ? 0 + 1 : 0 - 1;
+  //     TOTAL += newIndex;
+  //     if (TOTAL > 15) {
+  //       TOTAL = 0;
+  //       window.location = "http://127.0.0.1:8000/projects/"
+  //     } else if (TOTAL < -15) {
+  //       TOTAL = 0;
+  //       window.location = "http://127.0.0.1:8000/"
+  //     }
+  //   }
+  // }, 2000);
+</script>
+{% endblock js_script %}
