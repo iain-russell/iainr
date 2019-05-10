@@ -54,10 +54,10 @@
                 <img data-flickity-lazyload="{% static 'images/33.jpg' %}" />
               </figure>
             </div>
-
           </div>
 
         </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
       </div>
 
       {# End guitars #}
@@ -92,6 +92,7 @@
           </div>
 
         </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
       </div>
 
       {# End eurorack #}
@@ -113,15 +114,16 @@
                 <img data-flickity-lazyload="{% static 'images/Walnut2.jpg' %}" />
               </figure>
             </div>
+          </div>
 
         </div>
+        <button class="modal-close is-large" aria-label="close" onclick="closeModal()"></button>
       </div>
 
       {# End furniture #}
 
     </div>
     <a class="fas fa-long-arrow-alt-down fade-in" href="http://iainr.dev/links"></a>
-  </div>
 </section>
 
 {% endblock content %} {% block js_script %}
@@ -215,7 +217,5 @@
   //     }
   //   }
   // }, 2000);
-
-
 </script>
 {% endblock js_script %}
